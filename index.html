@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Empleos Carapari | Bolsa de trabajo</title>
+<meta name="description" content="Ofertas de trabajo en Carapari y alrededores.">
+<style>
+:root{--bg:#f4f6f5;--card:#fff;--tx:#14231c;--mu:#5d6b64;--pr:#0f5f3f;--pr2:#e6f2ec;--ac:#f2a516;--bd:#e0e6e2;--rd:#c0392b;--sh:0 1px 2px #0001,0 6px 20px #0f5f3f14}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1512;--card:#17201b;--tx:#e8efea;--mu:#97a69d;--pr:#3fbf89;--pr2:#1d2e25;--bd:#27342d;--rd:#ef7a6c;--sh:0 1px 2px #0006}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.c{max-width:1000px;margin:0 auto;padding:0 18px}
+nav{position:sticky;top:0;z-index:10;background:var(--card);border-bottom:1px solid var(--bd)}
+nav .c{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:.2px;cursor:pointer}
+.logo i{width:34px;height:34px;border-radius:10px;background:var(--pr);display:grid;place-items:center}
+.logo i svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.logo b{color:var(--pr)}
+.nr{display:flex;gap:8px}
+button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:10px 18px;background:var(--pr);color:#fff;font-weight:650;transition:.15s}
+button:hover{filter:brightness(1.1);transform:translateY(-1px)}
+button.g{background:var(--pr2);color:var(--pr)}button.d{background:transparent;color:var(--rd);border:1px solid var(--rd)}
+button.s{padding:7px 12px;font-size:14px}
+.hero{background:linear-gradient(135deg,#0b4630,#0f5f3f 55%,#1b7a53);color:#fff;padding:54px 0 70px}
+.hero h1{margin:0 0 10px;font-size:clamp(28px,5.5vw,44px);line-height:1.15;letter-spacing:-.5px}
+.hero h1 span{color:var(--ac)}
+.hero p{margin:0;opacity:.88;max-width:560px;font-size:18px}
+.search{display:flex;gap:8px;background:var(--card);padding:8px;border-radius:14px;box-shadow:var(--sh);margin:-30px auto 0;max-width:1000px;position:relative;flex-wrap:wrap}
+input,select,textarea{font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:11px 13px;width:100%;outline:0}
+input:focus,select:focus,textarea:focus{border-color:var(--pr);box-shadow:0 0 0 3px var(--pr2)}
+.search input{flex:2 1 220px;border:0}.search select{flex:1 1 160px;border:0}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:18px 0 6px}
+.chip{white-space:nowrap;background:var(--card);border:1px solid var(--bd);color:var(--tx);padding:6px 14px;border-radius:30px;font-size:14px;font-weight:600}
+.chip.on{background:var(--pr);color:#fff;border-color:var(--pr)}
+.top{display:flex;justify-content:space-between;align-items:baseline;margin:14px 0 12px}
+.top h2{margin:0;font-size:20px}.top span{color:var(--mu);font-size:14px}
+.job{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px;margin-bottom:12px;box-shadow:var(--sh);display:flex;gap:16px;transition:.15s}
+.job:hover{border-color:var(--pr);transform:translateY(-2px)}
+.av{flex:0 0 52px;height:52px;border-radius:14px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:22px}
+.jb{flex:1;min-width:0}
+.jb h3{margin:0;font-size:18px}.co{color:var(--mu);font-size:15px;margin:2px 0 8px}
+.pills{display:flex;gap:6px;flex-wrap:wrap}
+.pill{background:var(--pr2);color:var(--pr);border-radius:8px;padding:3px 10px;font-size:13px;font-weight:600}
+.pill.n{background:var(--ac);color:#3a2700}.pill.o{background:#8882;color:var(--mu)}
+.sn{color:var(--mu);font-size:14px;margin:10px 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.act{display:flex;flex-direction:column;justify-content:center;gap:6px;align-items:flex-end}
+@media(max-width:600px){.job{flex-wrap:wrap}.act{flex-direction:row;width:100%;align-items:center}}
+.empty{text-align:center;color:var(--mu);padding:46px 10px;background:var(--card);border:1px dashed var(--bd);border-radius:16px}
+dialog{border:0;border-radius:18px;padding:0;max-width:640px;width:calc(100% - 28px);background:var(--card);color:var(--tx);box-shadow:0 20px 60px #0006}
+dialog::backdrop{background:#0008;backdrop-filter:blur(3px)}
+.mh{padding:22px 22px 0;display:flex;gap:14px;align-items:center}.mb{padding:16px 22px 22px}
+.mb pre{white-space:pre-wrap;font:inherit;margin:14px 0}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.panel{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:20px;margin-bottom:18px;box-shadow:var(--sh)}
+.panel h2{margin:0 0 14px;font-size:20px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:600px){.g2{grid-template-columns:1fr}}
+label{font-size:13px;font-weight:600;color:var(--mu);display:block;margin:10px 0 4px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0 18px}
+.st{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;box-shadow:var(--sh)}
+.st b{display:block;font-size:30px;color:var(--pr);line-height:1.1}.st span{color:var(--mu);font-size:14px}
+.ar{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 0;border-top:1px solid var(--bd);flex-wrap:wrap}
+.ar:first-of-type{border-top:0}
+.note{background:var(--pr2);color:var(--pr);border-radius:10px;padding:10px 14px;margin-top:12px;font-size:14px;font-weight:600}
+.login{max-width:380px;margin:46px auto}
+footer{background:#0b2a1d;color:#b9cfc4;margin-top:50px;padding:30px 0;text-align:center;font-size:14px}
+footer b{color:#fff}
+</style>
+</head>
+<body>
+<nav><div class="c">
+  <div class="logo" id="home"><i><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg></i><div>EMPLEOS <b>CARAPARI</b></div></div>
+  <div class="nr"><button class="g s" id="tAdm">Administrador</button><button class="g s" id="tOut" hidden>Cerrar sesión</button></div>
+</div></nav>
+
+<main id="pub">
+  <section class="hero"><div class="c">
+    <h1>Encuentra tu próximo <span>empleo</span> en Carapari</h1>
+    <p>Ofertas de trabajo locales, publicadas por empresas y empleadores de la región. Postula directo por WhatsApp.</p>
+  </div></section>
+  <div class="c">
+    <div class="search">
+      <input id="q" placeholder="🔍  Buscar cargo, empresa o palabra clave" aria-label="Buscar">
+      <select id="cat" aria-label="Categoría"><option value="">Todas las categorías</option></select>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="top"><h2>Últimas ofertas</h2><span id="cnt"></span></div>
+    <div id="list"></div>
+  </div>
+</main>
+
+<main id="log" class="c" hidden>
+  <div class="panel login">
+    <h2>Acceso administrador</h2>
+    <form id="lform">
+      <input type="email" id="em" autocomplete="username" hidden>
+      <label for="pw">Contraseña</label>
+      <input id="pw" type="password" autocomplete="current-password">
+      <div class="row"><button id="go" type="submit">Entrar</button><button class="g" id="back" type="button">Volver</button></div>
+    </form>
+    <div id="lmsg" class="note" hidden></div>
+  </div>
+</main>
+
+<main id="adm" class="c" hidden>
+  <div class="stats">
+    <div class="st"><b id="sT">0</b><span>Ofertas totales</span></div>
+    <div class="st"><b id="sA">0</b><span>Activas</span></div>
+    <div class="st"><b id="sI">0</b><span>Cerradas</span></div>
+  </div>
+  <div class="panel">
+    <h2 id="fT">Nueva oferta</h2>
+    <label>Cargo *</label><input id="f_title" maxlength="90">
+    <div class="g2">
+      <div><label>Empresa / Empleador *</label><input id="f_comp" maxlength="80"></div>
+      <div><label>Categoría</label><select id="f_cat"></select></div>
+      <div><label>Tipo de contrato</label><select id="f_type"><option>Tiempo completo</option><option>Medio tiempo</option><option>Por proyecto</option><option>Temporal</option></select></div>
+      <div><label>Salario (opcional)</label><input id="f_sal" placeholder="Ej: Bs 3.000" maxlength="40"></div>
+      <div><label>Lugar</label><input id="f_loc" value="Carapari" maxlength="60"></div>
+      <div><label>WhatsApp de contacto</label><input id="f_wa" inputmode="tel" placeholder="591XXXXXXXX" maxlength="15"></div>
+    </div>
+    <label>Descripción y requisitos *</label><textarea id="f_desc" rows="5" maxlength="1500"></textarea>
+    <div class="row"><button id="save">Publicar oferta</button><button class="g" id="cancel" hidden>Cancelar edición</button></div>
+    <div id="msg" class="note" hidden></div>
+  </div>
+  <div class="panel"><h2>Ofertas publicadas</h2><div id="alist"></div></div>
+</main>
+
+<dialog id="dlg"><div id="dbody"></div></dialog>
+<footer><div class="c"><b>Empleos Carapari</b> · Bolsa de trabajo local<br>© <span id="yr"></span> Todos los derechos reservados</div></footer>
+
+<script>
+/* =====================================================================
+   CONEXIÓN CON SUPABASE
+   ===================================================================== */
+const SUPABASE_URL = "https://cucjidrfecddqmvqgmqz.supabase.co";
+const SUPABASE_KEY = "sb_publishable_zgAfJlLgL4XocUHm7WW9qg_JCsOUCnW";
+const ADMIN_EMAIL  = "rauls0673@gmail.com";
+/* ----------------------------------------------------------------------------- */
+
+if(SUPABASE_URL.includes("PEGA")) document.body.insertAdjacentHTML("afterbegin",'<div style="background:#c0392b;color:#fff;padding:10px;text-align:center;font-weight:600">Falta configurar Supabase: edita las 3 primeras líneas del script.</div>');
+
+const T = SUPABASE_URL + "/rest/v1/ofertas";
+const H = t => ({apikey:SUPABASE_KEY, "Content-Type":"application/json", ...(t ? {Authorization:"Bearer "+t} : {})});
+const toDB = d => { const {desc,...r}=d; if("desc" in d) r.descripcion=desc; return r };
+const fromDB = r => { const {descripcion,...x}=r; return {...x, desc:descripcion} };
+const chk = async r => {
+  if(!r.ok){
+    if(r.status===401) Auth.logout();
+    throw new Error(r.status===401 ? "Sesión vencida: cierra y vuelve a entrar" : "Error "+r.status+": "+(await r.text()));
+  }
+  return r;
+};
+
+const Store = {
+  async list(){
+    const u = T+"?select=*&order=created.desc";
+    let r = await fetch(u,{headers:H(Auth.token)});
+    if(r.status===401 && Auth.token){ Auth.logout(); r = await fetch(u,{headers:H()}); }
+    await chk(r);
+    return (await r.json()).map(fromDB);
+  },
+  async add(d){ await chk(await fetch(T,{method:"POST",headers:{...H(Auth.token),Prefer:"return=minimal"},body:JSON.stringify(toDB(d))})); },
+  async update(id,d){ await chk(await fetch(T+"?id=eq."+encodeURIComponent(id),{method:"PATCH",headers:H(Auth.token),body:JSON.stringify(toDB(d))})); },
+  async remove(id){ await chk(await fetch(T+"?id=eq."+encodeURIComponent(id),{method:"DELETE",headers:H(Auth.token)})); }
+};
+
+const Auth = {
+  token: sessionStorage.getItem("ec_token"),
+  err: "",
+  async login(pw){
+    this.err = "";
+    try{
+      const r = await fetch(SUPABASE_URL+"/auth/v1/token?grant_type=password",{method:"POST",
+        headers:{apikey:SUPABASE_KEY,"Content-Type":"application/json"},
+        body:JSON.stringify({email:ADMIN_EMAIL,password:pw})});
+      const j = await r.json().catch(()=>({}));
+      if(!r.ok){
+        this.err = (j.msg||j.error_description||j.message||"Error")+" ("+r.status+")";
+        console.error("Login falló:", r.status, j);
+        return false;
+      }
+      this.token = j.access_token;
+      sessionStorage.setItem("ec_token",this.token);
+      return true;
+    }catch(e){
+      this.err = "Sin conexión con Supabase";
+      console.error(e);
+      return false;
+    }
+  },
+  isLogged(){ return !!this.token },
+  logout(){ this.token=null; sessionStorage.removeItem("ec_token") }
+};
+
+/* =====================================================================
+   INTERFAZ
+   ===================================================================== */
+const CATS=["Comercio","Construcción","Educación","Salud","Transporte","Gastronomía","Agropecuario","Administrativo","Servicios","Otros"];
+let jobs=[], editId=null, chip="";
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt=t=>{try{return new Date(t).toLocaleDateString("es-BO",{day:"numeric",month:"short",year:"numeric"})}catch(e){return""}};
+const isNew=j=>Date.now()-j.created<7*864e5;
+const hue=s=>{let h=0;for(const c of String(s))h=(h*31+c.charCodeAt(0))%360;return h};
+const avatar=j=>`<div class="av" style="background:hsl(${hue(j.comp)} 45% 38%)">${esc((j.comp||"?")[0].toUpperCase())}</div>`;
+$("yr").textContent=new Date().getFullYear();
+$("em").value=ADMIN_EMAIL;
+CATS.forEach(c=>{$("cat").insertAdjacentHTML("beforeend",`<option>${c}</option>`);$("f_cat").insertAdjacentHTML("beforeend",`<option>${c}</option>`)});
+$("chips").innerHTML=['<button class="chip on" data-c="">Todas</button>'].concat(CATS.map(c=>`<button class="chip" data-c="${c}">${c}</button>`)).join("");
+
+function pills(j){return `<div class="pills">${isNew(j)&&j.active?'<span class="pill n">Nuevo</span>':""}<span class="pill">${esc(j.cat)}</span><span class="pill">${esc(j.type)}</span><span class="pill">📍 ${esc(j.loc)}</span>${j.sal?`<span class="pill">💰 ${esc(j.sal)}</span>`:""}</div>`}
+function waLink(j){const w=(j.wa||"").replace(/\D/g,"");return w?`https://wa.me/${w}?text=${encodeURIComponent("Hola, me interesa la oferta: "+j.title+" (Empleos Carapari)")}`:""}
+function render(){
+  const q=$("q").value.toLowerCase(), c=$("cat").value||chip;
+  const v=jobs.filter(j=>j.active&&(!c||j.cat===c)&&(`${j.title} ${j.comp} ${j.desc}`.toLowerCase().includes(q)));
+  $("cnt").textContent=v.length+(v.length===1?" oferta":" ofertas");
+  $("list").innerHTML=v.length?v.map(j=>`<div class="job">${avatar(j)}<div class="jb"><h3>${esc(j.title)}</h3><div class="co">${esc(j.comp)} · ${fmt(j.created)}</div>${pills(j)}<p class="sn">${esc(j.desc)}</p></div><div class="act"><button data-v="${esc(j.id)}">Ver detalles</button></div></div>`).join(""):`<div class="empty">😕 No hay ofertas que coincidan con tu búsqueda.</div>`;
+  $("sT").textContent=jobs.length;$("sA").textContent=jobs.filter(j=>j.active).length;$("sI").textContent=jobs.filter(j=>!j.active).length;
+  $("alist").innerHTML=jobs.length?jobs.map(j=>`<div class="ar"><div><b>${esc(j.title)}</b> <span class="pill${j.active?"":" o"}">${j.active?"Activa":"Cerrada"}</span><div class="co" style="margin:0">${esc(j.comp)} · ${fmt(j.created)}</div></div><div class="row" style="margin:0"><button class="g s" data-a="edit" data-id="${esc(j.id)}">Editar</button><button class="g s" data-a="tog" data-id="${esc(j.id)}">${j.active?"Cerrar":"Reabrir"}</button><button class="d s" data-a="del" data-id="${esc(j.id)}">Eliminar</button></div></div>`).join(""):`<div class="empty">Aún no has publicado ofertas.</div>`;
+}
+function detail(j){
+  const w=waLink(j);
+  $("dbody").innerHTML=`<div class="mh">${avatar(j)}<div><h3 style="margin:0">${esc(j.title)}</h3><div class="co" style="margin:0">${esc(j.comp)}</div></div></div>
+  <div class="mb">${pills(j)}<pre>${esc(j.desc)}</pre><div class="co">Publicado el ${fmt(j.created)}</div>
+  <div class="row">${w?`<a href="${w}" target="_blank" rel="noopener"><button>Postular por WhatsApp</button></a>`:""}<button class="g" id="shr">Compartir</button><button class="g" id="cls">Cerrar</button></div></div>`;
+  $("dlg").showModal();
+  $("cls").onclick=()=>$("dlg").close();
+  $("shr").onclick=async()=>{const t=`${j.title} - ${j.comp} (Empleos Carapari)`;try{navigator.share?await navigator.share({title:t,url:location.href}):await navigator.clipboard.writeText(t+" "+location.href);$("shr").textContent="¡Listo!"}catch(e){}};
+}
+async function reload(){ try{ jobs=await Store.list() }catch(e){ jobs=[]; console.error(e); say("No se pudieron cargar las ofertas.") } render() }
+function say(t){const m=$("msg");m.textContent=t;m.hidden=false;setTimeout(()=>m.hidden=true,3500)}
+function reset(){editId=null;["title","comp","sal","wa","desc"].forEach(k=>$("f_"+k).value="");$("f_loc").value="Carapari";$("fT").textContent="Nueva oferta";$("save").textContent="Publicar oferta";$("cancel").hidden=true}
+function view(v){$("pub").hidden=v!=="pub";$("log").hidden=v!=="log";$("adm").hidden=v!=="adm";$("tOut").hidden=!Auth.isLogged();$("tAdm").textContent=Auth.isLogged()?"Panel":"Administrador";scrollTo(0,0)}
+
+$("q").oninput=render;
+$("cat").onchange=()=>{chip="";document.querySelectorAll(".chip").forEach(b=>b.classList.toggle("on",!b.dataset.c));render()};
+$("chips").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;chip=b.dataset.c;$("cat").value="";document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x===b));render()};
+$("list").onclick=e=>{const b=e.target.closest("[data-v]");if(!b)return;const j=jobs.find(x=>x.id===b.dataset.v);if(j)detail(j)};
+$("dlg").onclick=e=>{if(e.target===$("dlg"))$("dlg").close()};
+$("home").onclick=()=>view("pub");
+$("tAdm").onclick=()=>view(Auth.isLogged()?"adm":"log");
+$("tOut").onclick=()=>{Auth.logout();view("pub")};
+$("back").onclick=()=>view("pub");
+$("lform").onsubmit=async e=>{
+  e.preventDefault();
+  const m=$("lmsg");
+  m.textContent="Entrando…";m.hidden=false;
+  if(await Auth.login($("pw").value)){
+    $("pw").value="";m.hidden=true;view("adm");reload();
+  }else{
+    m.textContent=Auth.err||"Contraseña incorrecta.";
+  }
+};
+$("cancel").onclick=reset;
+$("save").onclick=async()=>{
+  const d={title:$("f_title").value.trim(),comp:$("f_comp").value.trim(),cat:$("f_cat").value,type:$("f_type").value,sal:$("f_sal").value.trim(),loc:$("f_loc").value.trim(),wa:$("f_wa").value.trim(),desc:$("f_desc").value.trim()};
+  if(!d.title||!d.comp||!d.desc){say("Completa cargo, empresa y descripción.");return}
+  try{
+    if(editId){await Store.update(editId,d);say("Oferta actualizada.")}
+    else{await Store.add({...d,active:true,created:Date.now()});say("Oferta publicada.")}
+    reset();await reload();
+  }catch(e){say("No se pudo guardar: "+(e.message||e))}
+};
+$("alist").onclick=async e=>{
+  const b=e.target.closest("button[data-a]");if(!b)return;
+  const j=jobs.find(x=>x.id===b.dataset.id);if(!j)return;
+  try{
+    if(b.dataset.a==="del"){if(confirm("¿Eliminar esta oferta?")){await Store.remove(j.id);await reload()}}
+    else if(b.dataset.a==="tog"){await Store.update(j.id,{active:!j.active});await reload()}
+    else{editId=j.id;$("f_title").value=j.title;$("f_comp").value=j.comp;$("f_cat").value=j.cat;$("f_type").value=j.type;$("f_sal").value=j.sal||"";$("f_loc").value=j.loc;$("f_wa").value=j.wa||"";$("f_desc").value=j.desc;$("fT").textContent="Editar oferta";$("save").textContent="Guardar cambios";$("cancel").hidden=false;scrollTo({top:300,behavior:"smooth"})}
+  }catch(err){say("Error: "+(err.message||err))}
+};
+view("pub");reload();
+</script>
+</body>
+</html>
